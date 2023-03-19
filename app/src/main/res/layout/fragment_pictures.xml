@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesFragmentViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/StartOf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/EndOf"
+            android:layout_width="16dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_animal"
+            android:layout_width="145dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="70dp"
+            android:text="@string/animals"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_all"
+            android:layout_width="88dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/tv_all"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintTop_toBottomOf="@+id/tv_animal" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="83dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/EndOf"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/StartOf" />
+
+        <ImageView
+            android:id="@+id/shape_main"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view4"
+            app:layout_constraintVertical_bias="0.887"
+            app:srcCompat="@drawable/shape_from_below" />
+
+        <ImageView
+            android:id="@+id/person"
+            android:layout_width="10.43dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/view4"
+            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:srcCompat="@drawable/person" />
+
+        <ImageView
+            android:id="@+id/masseng"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="53dp"
+            app:layout_constraintEnd_toStartOf="@+id/person"
+            app:layout_constraintStart_toEndOf="@+id/to_add"
+            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:srcCompat="@drawable/masseng" />
+
+        <ImageView
+            android:id="@+id/to_add"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="41dp"
+            app:layout_constraintEnd_toEndOf="@+id/view4"
+            app:layout_constraintStart_toStartOf="@+id/view4"
+            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:srcCompat="@drawable/to_add" />
+
+        <ImageView
+            android:id="@+id/to_add_plus"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/to_add"
+            app:layout_constraintEnd_toEndOf="@+id/to_add"
+            app:layout_constraintStart_toStartOf="@+id/to_add"
+            app:layout_constraintTop_toTopOf="@+id/to_add"
+            app:srcCompat="@drawable/to_add_plus" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintEnd_toStartOf="@+id/to_add"
+            app:layout_constraintStart_toEndOf="@+id/home"
+            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:srcCompat="@drawable/search" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/home"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="53dp"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="@+id/view4"
+            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:srcCompat="@drawable/home"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/see_more"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/background_button"
+            android:text="@string/see_more"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view4"
+            app:layout_constraintEnd_toStartOf="@+id/EndOf"
+            app:layout_constraintStart_toEndOf="@+id/StartOf" />
+
+        <View
+            android:id="@+id/BottomOf"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/see_more"
+            app:layout_constraintEnd_toStartOf="@+id/EndOf"
+            app:layout_constraintStart_toEndOf="@+id/StartOf" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/images_list"
+            app:dismiss_enabled="true"
+            app:imageFromUrl="@{viewmodel.view1}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="63dp"
+            app:layout_constraintBottom_toTopOf="@+id/BottomOf"
+            app:layout_constraintEnd_toStartOf="@+id/EndOf"
+            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintTop_toBottomOf="@+id/tv_animal"
+            app:shouldRound="@{viewmodel.shouldRound}"
+            app:zoom_enabled="true"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

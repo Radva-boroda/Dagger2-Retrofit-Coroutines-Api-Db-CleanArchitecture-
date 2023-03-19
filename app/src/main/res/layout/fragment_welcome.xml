@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <View
+            android:id="@+id/view_bottom1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_welcome"
+            app:layout_constraintBottom_toTopOf="@+id/view_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/center"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:id="@+id/view_bottom"
+            android:layout_width="0dp"
+            android:layout_height="107dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/background_button"
+            android:onClick="onClick"
+            android:text="@string/btn_login"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/center"
+            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_register"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_bottom_register"
+            android:text="@string/btn_register"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/EndOf"
+            app:layout_constraintStart_toEndOf="@+id/center"/>
+
+        <View
+            android:id="@+id/center"
+            android:layout_width="9dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <View
+            android:id="@+id/StartOf"
+            android:layout_width="16dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            />
+
+        <View
+            android:id="@+id/EndOf"
+            android:layout_width="16dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="@+id/view_bottom1"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/text_photo"
+            android:layout_width="140dp"
+            android:layout_height="65dp"
+            android:text="@string/txt_photo"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bottom1"
+            app:layout_constraintEnd_toEndOf="@+id/view_bottom1"
+            app:layout_constraintStart_toStartOf="@+id/view_bottom1"
+            app:layout_constraintTop_toTopOf="@+id/view_bottom1" />
+
+        <ImageView
+            android:id="@+id/square"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bottom1"
+            app:layout_constraintEnd_toStartOf="@+id/text_photo"
+            app:layout_constraintTop_toTopOf="@+id/view_bottom1"
+            app:srcCompat="@drawable/union_1" />
+
+        <ImageView
+            android:id="@+id/square1"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bottom1"
+            app:layout_constraintEnd_toStartOf="@+id/text_photo"
+            app:layout_constraintTop_toTopOf="@+id/view_bottom1"
+            app:srcCompat="@drawable/union_2" />
+
+        <ImageView
+            android:id="@+id/user_face"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bottom1"
+            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:srcCompat="@drawable/user_face" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="115dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="33dp"
+            android:text="@string/user_name"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bottom1"
+            app:layout_constraintStart_toEndOf="@+id/user_face" />
+
+        <TextView
+            android:id="@+id/users"
+            android:layout_width="99dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/user_name2"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/user_face"
+            app:layout_constraintTop_toBottomOf="@+id/user_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

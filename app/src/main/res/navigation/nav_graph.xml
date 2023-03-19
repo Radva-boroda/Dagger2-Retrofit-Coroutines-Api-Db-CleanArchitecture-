@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_welcome">
+
+    <fragment
+        android:id="@+id/fragment_welcome"
+        android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.WelcomeFragment"
+        android:label="WelcomeFragmentViewModel">
+        <action
+            android:id="@+id/to_searchFragment"
+            app:destination="@id/fragment_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_pictures"
+        android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.PicturesFragment"
+        android:label="PicturesFragmentViewModel">
+
+        <argument
+            android:name="image"
+            app:argType="dev.ronnie.imageloaderdagger2.data.model.ImagesResponse"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_fragment_pictures_to_fragment_login"
+            app:destination="@id/fragment_login" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.example.mydatabaseapp.login.LoginFragment"
+        android:label="LoginFragmentViewModel">
+        <action
+            android:id="@+id/action_fragment_login_to_pictureFragment"
+            app:destination="@id/fragment_pictures" />
+        <action
+            android:id="@+id/action_fragment_login_to_registerFragment"
+            app:destination="@id/registerFragment" />
+
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="dev.ronnie.imageloaderdagger2.presentation.MainActivity"
+        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.mydatabaseapp.register.RegisterFragment"
+        android:label="register_home_fragment"
+        tools:layout="@layout/register_home_fragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment"
+            app:destination="@id/fragment_welcome" />
+    </fragment>
+</navigation>

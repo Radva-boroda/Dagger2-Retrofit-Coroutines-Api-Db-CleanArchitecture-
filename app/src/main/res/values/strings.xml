@@ -1,0 +1,15 @@
+<resources>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_login">LOG IN</string>
+    <string name="btn_log_in_text">Log in</string>
+    <string name="txt_photo">photo</string>
+    <string name="user_name">Pawel Czerwinski</string>
+    <string name="edt_login">jane@example.com</string>
+    <string name="animals">Animals</string>
+    <string name="tv_all">ALL RESULTS</string>
+    <string name="see_more">SEE MORE</string>
+    <string name="btn_log_in">LOG IN</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_name2">.@pawel_czerwinski</string>
+
+</resources>

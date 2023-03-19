@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myLoginViewModel"
+            type="com.example.mydatabaseapp.login.LoginViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/constraint_login"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_bottom_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_bottom_end"
+            android:layout_width="16dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp"/>
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="0dp"
+            android:layout_height="176dp"
+            app:layout_constraintEnd_toStartOf="@+id/view_bottom_end"
+            app:layout_constraintStart_toEndOf="@+id/view_bottom_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/authorization_login"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bottom_log_in1"
+            app:layout_constraintEnd_toStartOf="@+id/view_bottom_end"
+            app:layout_constraintStart_toEndOf="@+id/view_bottom_start"
+            app:layout_constraintTop_toBottomOf="@+id/view_top"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_text_log_in"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="17dp"
+                android:text="@={myLoginViewModel.inputUsername}"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"
+                android:textSize="17sp"
+                tools:ignore="MissingConstraints" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/authorization_password"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            app:endIconMode="password_toggle"
+            android:background="@drawable/bottom_log_in1"
+            app:layout_constraintEnd_toStartOf="@+id/view_bottom_end"
+            app:layout_constraintStart_toEndOf="@+id/view_bottom_start"
+            app:layout_constraintTop_toBottomOf="@+id/authorization_login">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_text_log_in1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="17dp"
+                android:text="@={myLoginViewModel.inputPassword}"
+                android:textSize="17sp"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"
+                android:textColorHint="@color/black"
+                tools:ignore="MissingConstraints" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submitButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:onClick="@{()->myLoginViewModel.loginButton()}"
+            android:text="@string/btn_log_in"
+            android:background="@drawable/bottom_log_in"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/view_bottom_end"
+            app:layout_constraintStart_toEndOf="@+id/view_bottom_start"
+            app:layout_constraintTop_toBottomOf="@+id/authorization_password" />
+
+        <TextView
+            android:id="@+id/text_log_in"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/btn_log_in_text"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_top"
+            app:layout_constraintStart_toStartOf="@+id/view_top" />
+
+        <TextView
+            android:id="@+id/SignUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:onClick="@{()->myLoginViewModel.signUP()}"
+            android:textColor="@color/white"
+            android:text="TO REGISTER"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/submitButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
