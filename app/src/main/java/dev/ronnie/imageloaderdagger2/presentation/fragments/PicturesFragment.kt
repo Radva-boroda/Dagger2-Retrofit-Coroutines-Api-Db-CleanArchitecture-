@@ -1,36 +1,35 @@
 package dev.ronnie.imageloaderdagger2.presentation.fragments
 
-import android.Manifest
-import android.os.Build
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.ImageView
+import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
-import com.google.android.material.snackbar.Snackbar
+import androidx.paging.LoadState
 import dagger.android.support.DaggerFragment
 import dev.ronnie.imageloaderdagger2.R
 import dev.ronnie.imageloaderdagger2.data.model.ImagesResponse
 import dev.ronnie.imageloaderdagger2.databinding.FragmentPicturesBinding
+import dev.ronnie.imageloaderdagger2.presentation.adapters.ImagesAdapter
+import dev.ronnie.imageloaderdagger2.presentation.adapters.LoadingStateAdapter
 import dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesFragmentViewModel
 import dev.ronnie.imageloaderdagger2.utils.*
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
+
 class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
 
-
-    private var snackBar: Snackbar? = null
-    private var image: ImagesResponse? = null
+    private var hasInitiatedInitialCall = false
+    private var job: Job? = null
+    private lateinit var binding: FragmentPicturesBinding
+    private val adapter =
+        ImagesAdapter { imagesResponse, imageView -> navigate(imagesResponse, imageView) }
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -39,50 +38,40 @@ class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
         viewModelFactory
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentPicturesBinding.bind(view)
 
-        inflater.inflate(R.menu.download_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
+        setAdapter()
+
+        //prevents the method being called again onbackpressed pressed.
+        if (!hasInitiatedInitialCall) {
+            getImages()
+            hasInitiatedInitialCall = true
+        }
     }
-
-    private fun startDownload() {
-        makeSnackBar()
-        viewModel.notifyDownloading.observe(viewLifecycleOwner, {
-            when (it) {
-                STARTING_DOWNLOAD -> {
-                    snackBar?.show()
-                }
-                ERROR_DOWNLOADING -> {
-                    snackBar?.dismiss()
-                }
-                HAS_DOWNLOADED -> {
-                    snackBar?.setText("Saving...")
-                }
-                HAS_SAVED -> {
-                    snackBar?.dismiss()
-                }
-            }
-        })
-        lifecycleScope.launch(Dispatchers.Default) {
-            image?.let { viewModel.getBitmapFromURL(it.urls.full, it.id) }
+    private fun getImages() {
+        job?.cancel()
+        job = lifecycleScope.launch {
+            viewModel.getImages()
         }
     }
 
-    private fun makeSnackBar() {
-        val parentLayout = requireActivity().findViewById<View>(android.R.id.content)
-        snackBar = Snackbar.make(parentLayout, "Downloading...", Snackbar.LENGTH_INDEFINITE)
+    private fun setAdapter() {
+        binding.imagesList.adapter = adapter.withLoadStateFooter(
+            LoadingStateAdapter { adapter.retry() }
+        )
+        adapter.addLoadStateListener {
+
+            binding.progress.isVisible = it.refresh is LoadState.Loading
+
+            if (it.refresh is LoadState.Error) {
+                requireContext().toast("There was a problem fetching data")
+            }
+        }
+    }
+    private fun navigate(imagesResponse: ImagesResponse, imageView: ImageView) {
+        // val extras = FragmentNavigatorExtras(imageView to imagesResponse.urls.regular) not working
 
     }
-
-    fun downLoadFull() {
-        requireContext().toast("Downloading full resolution may take a while")
-        startDownload()
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        snackBar?.dismiss()
-    }
-
 }

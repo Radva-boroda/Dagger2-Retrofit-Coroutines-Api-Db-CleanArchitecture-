@@ -13,17 +13,4 @@ import javax.inject.Inject
 /**
  *created by Ronnie Otieno on 03-Apr-21.
  **/
-class WelcomeFragmentViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
-
-    private var currentResult: Flow<PagingData<ImagesResponse>>? = null
-
-    fun getImages(): Flow<PagingData<ImagesResponse>> {
-        val orderBy = listOf("latest", "oldest", "popular").random()
-        val newResult: Flow<PagingData<ImagesResponse>> =
-            repository.getImages(orderBy).cachedIn(viewModelScope)
-        currentResult = newResult
-        return newResult
-    }
-
-
-}
+class WelcomeFragmentViewModel @Inject constructor(private val repository: Repository) : ViewModel()

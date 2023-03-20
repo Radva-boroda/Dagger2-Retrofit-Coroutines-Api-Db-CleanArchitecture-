@@ -2,28 +2,12 @@ package dev.ronnie.imageloaderdagger2.presentation.fragments
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.paging.LoadState
 import dagger.android.support.DaggerFragment
 import dev.ronnie.imageloaderdagger2.R
-import dev.ronnie.imageloaderdagger2.data.model.ImagesResponse
 // import dev.ronnie.imageloaderdagger2.presentation.adapters.ImagesAdapter
-import dev.ronnie.imageloaderdagger2.presentation.viewmodels.WelcomeFragmentViewModel
-import dev.ronnie.imageloaderdagger2.utils.toast
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 
 /**

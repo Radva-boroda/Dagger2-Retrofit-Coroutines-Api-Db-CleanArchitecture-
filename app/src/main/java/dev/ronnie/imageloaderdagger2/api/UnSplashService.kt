@@ -26,7 +26,7 @@ interface UnSplashService {
         @Query("per_page") limit: Int
     ): SearchResponse
 
-    //Dont worry about response we just tell the unsplash that user downlaoded the image
+
     @GET("photos/{id}/download")
     suspend fun downloadImage(
         @Path("id") photoId: String

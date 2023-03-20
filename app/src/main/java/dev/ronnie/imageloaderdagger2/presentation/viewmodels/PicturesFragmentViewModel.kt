@@ -14,9 +14,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import dev.ronnie.imageloaderdagger2.data.model.ImagesResponse
 import dev.ronnie.imageloaderdagger2.data.repository.Repository
 import dev.ronnie.imageloaderdagger2.utils.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.*
@@ -109,6 +113,16 @@ class PicturesFragmentViewModel @Inject constructor(
         }
 
     }
+
+    private var currentResult: Flow<PagingData<ImagesResponse>>? = null
+    fun getImages(): Flow<PagingData<ImagesResponse>> {
+        val orderBy = listOf("latest", "oldest", "popular").random()
+        val newResult: Flow<PagingData<ImagesResponse>> =
+            repo.getImages(orderBy).cachedIn(viewModelScope)
+        currentResult = newResult
+        return newResult
+    }
+
 
     suspend fun getBitmapFromURL(src: String, photoId: String) {
         withContext(Dispatchers.Main) {
