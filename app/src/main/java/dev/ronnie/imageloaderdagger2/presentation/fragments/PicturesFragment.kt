@@ -1,77 +1,43 @@
 package dev.ronnie.imageloaderdagger2.presentation.fragments
 
+
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.fragment.app.viewModels
+import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.paging.LoadState
+import androidx.recyclerview.widget.RecyclerView
 import dagger.android.support.DaggerFragment
 import dev.ronnie.imageloaderdagger2.R
-import dev.ronnie.imageloaderdagger2.data.model.ImagesResponse
-import dev.ronnie.imageloaderdagger2.databinding.FragmentPicturesBinding
-import dev.ronnie.imageloaderdagger2.presentation.adapters.ImagesAdapter
-import dev.ronnie.imageloaderdagger2.presentation.adapters.LoadingStateAdapter
+import dev.ronnie.imageloaderdagger2.presentation.adapters.StartAdapter
 import dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesFragmentViewModel
-import dev.ronnie.imageloaderdagger2.utils.*
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import javax.inject.Inject
-
 
 
 class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
+    lateinit var recyclerView: RecyclerView
+    lateinit var adapter: StartAdapter
 
-    private var hasInitiatedInitialCall = false
-    private var job: Job? = null
-    private lateinit var binding: FragmentPicturesBinding
-    private val adapter =
-        ImagesAdapter { imagesResponse, imageView -> navigate(imagesResponse, imageView) }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.i("PicturesFragment","Undergoing_Initialization_viewModel")
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+        val viewModel = ViewModelProvider(this).get(PicturesFragmentViewModel::class.java)// Ініціалізація ВЮ МОДЕЛі
 
-    private val viewModel: PicturesFragmentViewModel by viewModels {
-        viewModelFactory
-    }
+        val v = inflater.inflate(R.layout.fragment_pictures, container, false)
+        recyclerView = v?.findViewById<RecyclerView>(R.id.imagesss) as RecyclerView // айдішка
+        adapter = StartAdapter()   // адаптер
+        recyclerView.adapter = adapter // Устанавлюєм адаптер в рісакл вю
+        viewModel.getImageItem() // метод спрацював але там нічого немає// Треба список покласти в переміну
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = FragmentPicturesBinding.bind(view)
-
-        setAdapter()
-
-        //prevents the method being called again onbackpressed pressed.
-        if (!hasInitiatedInitialCall) {
-            getImages()
-            hasInitiatedInitialCall = true
-        }
-    }
-    private fun getImages() {
-        job?.cancel()
-        job = lifecycleScope.launch {
-            viewModel.getImages()
-        }
-    }
-
-    private fun setAdapter() {
-        binding.imagesList.adapter = adapter.withLoadStateFooter(
-            LoadingStateAdapter { adapter.retry() }
-        )
-        adapter.addLoadStateListener {
-
-            binding.progress.isVisible = it.refresh is LoadState.Loading
-
-            if (it.refresh is LoadState.Error) {
-                requireContext().toast("There was a problem fetching data")
-            }
-        }
-    }
-    private fun navigate(imagesResponse: ImagesResponse, imageView: ImageView) {
-        // val extras = FragmentNavigatorExtras(imageView to imagesResponse.urls.regular) not working
-
+        // Отут вилітає бо там проблеми з REPOSITORY
+        viewModel.myImageList.observe(viewLifecycleOwner,{list->
+            list.body()?.let{adapter.setList(it)}  //let полезен при работе с объектами, которые могут принимать значение null.
+        })
+        return v
     }
 }
+
+

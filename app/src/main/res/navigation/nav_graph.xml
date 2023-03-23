@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
@@ -8,32 +9,30 @@
     <fragment
         android:id="@+id/fragment_welcome"
         android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.WelcomeFragment"
-        android:label="WelcomeFragmentViewModel">
+        android:label="WelcomeFragmentViewModel"
+        tools:layout="@layout/fragment_welcome">
         <action
-            android:id="@+id/to_searchFragment"
-            app:destination="@id/fragment_login" />
+            android:id="@+id/to_action_fragment_welcome_to_fragment_login"
+            app:destination="@id/FragmentLogin" />
     </fragment>
     <fragment
         android:id="@+id/fragment_pictures"
         android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.PicturesFragment"
-        android:label="PicturesFragmentViewModel">
+        android:label="PicturesFragmentViewModel"
+        tools:layout="@layout/fragment_pictures">
 
-        <argument
-            android:name="image"
-            app:argType="dev.ronnie.imageloaderdagger2.data.model.ImagesResponse"
-            app:nullable="false" />
         <action
-            android:id="@+id/action_fragment_pictures_to_fragment_login"
-            app:destination="@id/fragment_login" />
-
+            android:id="@+id/action_fragment_pictures_to_FragmentLogin"
+            app:destination="@id/FragmentLogin" />
     </fragment>
     <fragment
-        android:id="@+id/fragment_login"
+        android:id="@+id/FragmentLogin"
         android:name="com.example.mydatabaseapp.login.LoginFragment"
-        android:label="LoginFragmentViewModel">
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_fragment_login_to_pictureFragment"
-            app:destination="@id/fragment_pictures" />
+            app:destination="@id/fragment_pictures"/>
         <action
             android:id="@+id/action_fragment_login_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -46,10 +45,9 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.mydatabaseapp.register.RegisterFragment"
-        android:label="register_home_fragment"
-        tools:layout="@layout/register_home_fragment" >
+        tools:layout="@layout/register_home_fragment">
         <action
-            android:id="@+id/action_registerFragment_to_homeFragment"
+            android:id="@+id/action_registerFragment_to_fragment_welcome"
             app:destination="@id/fragment_welcome" />
     </fragment>
 </navigation>

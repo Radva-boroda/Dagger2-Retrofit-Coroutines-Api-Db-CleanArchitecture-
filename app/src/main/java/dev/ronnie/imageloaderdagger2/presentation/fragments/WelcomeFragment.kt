@@ -1,105 +1,32 @@
 package dev.ronnie.imageloaderdagger2.presentation.fragments
 
+import android.annotation.SuppressLint
+import android.graphics.drawable.DrawableContainer
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import dagger.android.support.DaggerFragment
 import dev.ronnie.imageloaderdagger2.R
-// import dev.ronnie.imageloaderdagger2.presentation.adapters.ImagesAdapter
 
 
-/**
- *created by Ronnie Otieno on 03-Apr-21.
- **/
+
+
 class WelcomeFragment : DaggerFragment(R.layout.fragment_welcome) {
 
-    var loginbottom: Button? = null
+    var loginbutton: Button? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        loginbottom = view.findViewById<Button>(R.id.btn_login) as Button
-        loginbottom!!.setOnClickListener { findNavController().navigate(R.id.fragment_login)
-            Log.d("Button1", "CLicked..")
+        loginbutton = view.findViewById<Button>(R.id.btn_login) as Button
+       loginbutton!!.setOnClickListener {
+               view: View ->
+            view.findNavController().navigate(R.id.to_action_fragment_welcome_to_fragment_login)
+           Log.i("Clic","Fragment_Welcom_to_Fragment_Login")
         }
     }
-}
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//       // binding = FragmentImagesListBinding.bind(view)
-//       // (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-//        setHasOptionsMenu(true)
-//
-//        setAdapter()
-//
-//        //prevents the method being called again onbackpressed pressed.
-//        if (!hasInitiatedInitialCall) {
-//            getImages()
-//            hasInitiatedInitialCall = true
-//        }
-//
-//    }
-
-//    private fun getImages() {
-//        job?.cancel()
-//        job = lifecycleScope.launch {
-//            viewModel.getImages().collect {
-//                adapter.submitData(it)
-//            }
-//
-//        }
-//    }
-
-//    private fun setAdapter() {
-//    //    binding.imagesList.adapter = adapter.withLoadStateFooter(
-//     //       LoadingStateAdapter { adapter.retry() }
-//     //   )
-//        adapter.addLoadStateListener {
-//
-//      //      binding.progress.isVisible = it.refresh is LoadState.Loading
-//
-//            if (it.refresh is LoadState.Error) {
-//                requireContext().toast("There was a problem fetching data")
-//            }
-//        }
-//    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//
-//        when (item.itemId) {
-//            R.id.btn_login -> navigateSearch()
-//            R.id.scroll_down -> scrollDown()
-//            R.id.scroll_up -> scrollUp()
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-//
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        inflater.inflate(R.menu.main_menu, menu)
-//        super.onCreateOptionsMenu(menu, inflater)
-//    }
-//
-//    private fun navigateSearch() {
-// //       binding.root.findNavController().navigate(WelcomFragmentDirections.toSearchFragment())
-//    }
-//
-//    private fun scrollUp() {
-//  //      binding.imagesList.scrollToPosition(0)
-//    }
-//
-//    private fun scrollDown() {
-//  //      binding.imagesList.scrollToPosition(adapter.itemCount - 1)
-//    }
-//
-//
-//    private fun navigate(imagesResponse: ImagesResponse, imageView: ImageView) {
-//        // val extras = FragmentNavigatorExtras(imageView to imagesResponse.urls.regular) not working
-//
-//  //      val action = WelcomFragmentDirections.toSingleImageFragment(imagesResponse)
-//  //      binding.root.findNavController()
-//    //        .navigate(action)
-//    }
-//
-//}
+    }

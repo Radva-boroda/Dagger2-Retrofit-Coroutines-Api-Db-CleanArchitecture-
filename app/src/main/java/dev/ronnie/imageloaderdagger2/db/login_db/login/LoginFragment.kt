@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
 import dev.ronnie.imageloaderdagger2.R
 import dev.ronnie.imageloaderdagger2.databinding.FragmentLoginBinding
@@ -86,21 +85,18 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-
-    private fun displayUsersList() {
-        Log.i("MYTAG","insidisplayUsersList")
-        val action =  LoginFragmentDirections.actionFragmentLoginToRegisterFragment()
-        NavHostFragment.findNavController(this).navigate(action)
-
-    }
-
     private fun navigateUserDetails() {
-        Log.i("MYTAG","insidisplayUsersList")
+        Log.i("Confirmed","Authorization_Passed")
         val action = LoginFragmentDirections.actionFragmentLoginToPictureFragment()
         NavHostFragment.findNavController(this).navigate(action)
     }
-}
 
-private fun Any.actionFragmentLoginToPictureFragment(): Int {
-return (R.id.fragment_pictures)
+
+    private fun displayUsersList() {
+        Log.i("Send","For_Registration")
+        val action = LoginFragmentDirections.actionFragmentLoginToRegisterFragment()
+        NavHostFragment.findNavController(this).navigate(action)
+
+    }
+
 }
