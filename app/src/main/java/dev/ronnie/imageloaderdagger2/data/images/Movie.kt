@@ -1,6 +1,6 @@
 package dev.ronnie.imageloaderdagger2.data.images
 // Модель по якій прийде файл
-data class ImagesItem(
+data class Movie(
     val albumId: Int,
     val id: Int,
     val thumbnailUrl: String,

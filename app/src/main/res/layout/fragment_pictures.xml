@@ -158,7 +158,7 @@
             app:layout_constraintStart_toEndOf="@+id/StartOf" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/imagesss"
+            android:id="@+id/recyclerV"
             app:dismiss_enabled="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -166,8 +166,9 @@
             app:layout_constraintBottom_toTopOf="@+id/BottomOf"
             app:layout_constraintEnd_toStartOf="@+id/EndOf"
             app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/tv_animal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
             tools:listitem="@layout/image_item"/>
 
         <ProgressBar

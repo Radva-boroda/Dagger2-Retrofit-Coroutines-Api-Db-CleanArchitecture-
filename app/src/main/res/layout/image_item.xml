@@ -11,50 +11,45 @@
         android:layout_width="match_parent"
         android:layout_height="107dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/view1"
-            android:scaleType="centerCrop"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.zLinearLayoutManager"
+            android:background="@color/black"
+            android:scaleType="centerCrop"
             android:text="VIEW 1"
-            android:background="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/view2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/view2"/>
-
-        <ImageView
-            android:id="@+id/view2"
-
-            android:scaleType="centerCrop"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="VIEW 2"
-            app:layoutManager="androidx.recyclerview.widget.zLinearLayoutManager"
-            android:background="@color/cardview_dark_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/view1"
-            app:layout_constraintRight_toLeftOf="@id/view3"
-            app:layout_constraintStart_toEndOf="@id/view1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/view3"
-            />
-
-        <ImageView
-            android:id="@+id/view3"
-            android:scaleType="centerCrop"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="VIEW 3"
-            android:background="@color/black"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/view2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/view2"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/view2"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:text="VIEW 2"-->
+<!--            android:background="@color/cardview_dark_background"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/view1"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/view3"-->
+<!--            app:layout_constraintStart_toEndOf="@id/view1"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/view3"-->
+<!--            />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/view3"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:text="VIEW 3"-->
+<!--            android:background="@color/black"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/view2"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@id/view2"/>-->
 
 
 
