@@ -28,7 +28,6 @@ import dev.ronnie.imageloaderdagger2.presentation.viewmodels.ViewModelFactoryP
 class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
     private var _binding: FragmentPicturesBinding? = null
     private val binding get() = _binding!!
-    val adapterrrr = StartAdapter()
 
     lateinit var viewModel: PicturesFragmentViewModel
              var recyclerView: RecyclerView? = null
