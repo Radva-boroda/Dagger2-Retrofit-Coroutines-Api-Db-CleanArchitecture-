@@ -7,5 +7,6 @@ class Test33 {
     val f : Adapter? = null
     val gg : Adapter? = null
     val fg : Adapter? = null
-
+    val ggs : Adapter? = null
+    val fgd : Adapter? = null
 }
