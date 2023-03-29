@@ -7,4 +7,6 @@ class Test2 {
     val f : Adapter? = null
     val pgg : Adapter? = null
     val fg : Adapter? = null
+    val pggs : Adapter? = null
+    val fgd: Adapter? = null
 }
