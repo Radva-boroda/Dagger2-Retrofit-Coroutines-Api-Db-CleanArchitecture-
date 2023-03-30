@@ -29,9 +29,7 @@ class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
     private var _binding: FragmentPicturesBinding? = null
     private val binding get() = _binding!!
     lateinit var viewModel: PicturesFragmentViewModel
-             var recyclerView: RecyclerView? = null
-     private val retrofitService = RetrofitService.getInstance()
-             var  gridLayoutManager: GridLayoutManager? = null
+    private val retrofitService = RetrofitService.getInstance()
 
     val adapter = StartAdapter()
 
@@ -48,13 +46,8 @@ class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
 
         Log.i("image", "transfer")
 
-        gridLayoutManager = GridLayoutManager(requireContext(), 3, LinearLayoutManager.VERTICAL, false)
-        recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerV).also {
-            it?.layoutManager = gridLayoutManager
-        }
-
         binding.recyclerV.adapter = adapter
-        binding.recyclerV.layoutManager = gridLayoutManager
+        binding.recyclerV.layoutManager = GridLayoutManager(requireContext(), 3, LinearLayoutManager.VERTICAL, false)
 
 
 
