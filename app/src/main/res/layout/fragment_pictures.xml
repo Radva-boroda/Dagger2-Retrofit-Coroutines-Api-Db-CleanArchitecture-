@@ -20,14 +20,14 @@
         android:background="@color/white">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/StartOf"
+            android:id="@+id/start_Of"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="16dp"/>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/EndOf"
+            android:id="@+id/еnd_Of"
             android:layout_width="16dp"
             android:layout_height="0dp"
             android:orientation="vertical"
@@ -41,7 +41,7 @@
             android:text="@string/animals"
             android:textColor="@color/black"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintStart_toEndOf="@+id/start_Of"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:text="@string/tv_all"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintStart_toEndOf="@+id/start_Of"
             app:layout_constraintTop_toBottomOf="@+id/tv_animal" />
 
 
@@ -62,9 +62,9 @@
             android:layout_height="83dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/EndOf"
+            app:layout_constraintEnd_toStartOf="@+id/еnd_Of"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/StartOf" />
+            app:layout_constraintStart_toEndOf="@+id/start_Of" />
 
         <ImageView
             android:id="@+id/person"
@@ -135,8 +135,8 @@
             app:dismiss_enabled="true"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/view4"
-            app:layout_constraintEnd_toStartOf="@+id/EndOf"
-            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintEnd_toStartOf="@+id/еnd_Of"
+            app:layout_constraintStart_toEndOf="@+id/start_Of"
             app:layout_constraintTop_toBottomOf="@+id/tv_animal"
             tools:itemCount="3"
             tools:listitem="@layout/image_item" />
