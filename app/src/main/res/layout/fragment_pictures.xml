@@ -35,8 +35,8 @@
 
         <TextView
             android:id="@+id/tv_animal"
-            android:layout_width="145dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:text="@string/animals"
             android:textColor="@color/black"
@@ -46,9 +46,10 @@
 
         <TextView
             android:id="@+id/tv_all"
-            android:layout_width="88dp"
-            android:layout_height="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:textSize="13sp"
             android:text="@string/tv_all"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -63,7 +64,6 @@
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/EndOf"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/StartOf" />
 
         <ImageView

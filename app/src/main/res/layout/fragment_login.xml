@@ -31,22 +31,16 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="16dp"/>
 
-        <View
-            android:id="@+id/view_top"
-            android:layout_width="0dp"
-            android:layout_height="176dp"
-            app:layout_constraintEnd_toStartOf="@+id/view_bottom_end"
-            app:layout_constraintStart_toEndOf="@+id/view_bottom_start"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/authorization_login"
             android:layout_width="0dp"
             android:layout_height="52dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/bottom_log_in1"
             app:layout_constraintEnd_toStartOf="@+id/view_bottom_end"
             app:layout_constraintStart_toEndOf="@+id/view_bottom_start"
-            app:layout_constraintTop_toBottomOf="@+id/view_top"
+            app:layout_constraintTop_toBottomOf="@+id/text_log_in"
             android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -107,12 +101,12 @@
             android:id="@+id/text_log_in"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
             android:text="@string/btn_log_in_text"
             android:textColor="@color/black"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="@+id/view_top"
-            app:layout_constraintStart_toStartOf="@+id/view_top" />
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="@+id/view_bottom_start"
+            app:layout_constraintTop_toTopOf="@+id/image_aroow" />
 
         <TextView
             android:id="@+id/SignUpButton"
@@ -126,5 +120,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/submitButton" />
+
+        <ImageView
+            android:id="@+id/image_aroow"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

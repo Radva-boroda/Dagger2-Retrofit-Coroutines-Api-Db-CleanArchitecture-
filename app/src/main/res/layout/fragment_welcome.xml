@@ -17,8 +17,10 @@
             android:background="@drawable/background_welcome"
             app:layout_constraintBottom_toTopOf="@+id/view_bottom"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/center" />
+            app:layout_constraintTop_toTopOf="@+id/center"
+            app:layout_constraintVertical_bias="0.0" />
 
         <View
             android:id="@+id/view_bottom"
@@ -32,8 +34,9 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_login"
             android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginBottom="32dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="33dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/background_button"
             android:onClick="onClick"
             android:text="@string/btn_login"
@@ -41,19 +44,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/center"
             app:layout_constraintStart_toEndOf="@+id/StartOf1"
+            app:layout_constraintTop_toBottomOf="@+id/view_bottom1"
             tools:ignore="MissingConstraints" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_register"
             android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginBottom="32dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="33dp"
             android:background="@drawable/round_bottom_register"
             android:text="@string/btn_register"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/view_bottom"
             app:layout_constraintEnd_toStartOf="@+id/EndOf1"
-            app:layout_constraintStart_toEndOf="@+id/center"/>
+            app:layout_constraintStart_toEndOf="@+id/center"
+            app:layout_constraintTop_toBottomOf="@+id/view_bottom1" />
 
         <View
             android:id="@+id/center"
@@ -63,25 +69,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-        <View
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/StartOf1"
-            android:layout_width="16dp"
-            android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"/>
 
-        <View
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/EndOf1"
-            android:layout_width="16dp"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="@+id/view_bottom1"
-            tools:ignore="MissingConstraints" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
 
         <TextView
             android:id="@+id/text_photo"
-            android:layout_width="140dp"
-            android:layout_height="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="@string/txt_photo"
             android:textColor="@color/black"
             android:textSize="50sp"
@@ -121,19 +127,20 @@
 
         <TextView
             android:id="@+id/user_name"
-            android:layout_width="115dp"
-            android:layout_height="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="33dp"
             android:text="@string/user_name"
             android:textColor="@color/black"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/view_bottom1"
             app:layout_constraintStart_toEndOf="@+id/user_face" />
 
         <TextView
             android:id="@+id/users"
-            android:layout_width="99dp"
-            android:layout_height="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/user_name2"
             android:textColor="@color/black"
