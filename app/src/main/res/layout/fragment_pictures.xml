@@ -55,6 +55,7 @@
             app:layout_constraintStart_toEndOf="@+id/StartOf"
             app:layout_constraintTop_toBottomOf="@+id/tv_animal" />
 
+
         <View
             android:id="@+id/view4"
             android:layout_width="0dp"
@@ -62,46 +63,37 @@
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/EndOf"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/StartOf" />
 
         <ImageView
-            android:id="@+id/shape_main"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view4"
-            app:layout_constraintEnd_toStartOf="@+id/EndOf"
-            app:layout_constraintStart_toStartOf="@+id/StartOf"
-            app:srcCompat="@drawable/shape_from_below" />
-
-        <ImageView
             android:id="@+id/person"
-            android:layout_width="10.43dp"
+            android:layout_width="10dp"
             android:layout_height="15dp"
-            android:layout_marginTop="53dp"
             android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view4"
             app:layout_constraintEnd_toEndOf="@+id/view4"
-            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerV"
             app:srcCompat="@drawable/person" />
 
         <ImageView
             android:id="@+id/masseng"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginTop="53dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view4"
             app:layout_constraintEnd_toStartOf="@+id/person"
             app:layout_constraintStart_toEndOf="@+id/to_add"
-            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerV"
             app:srcCompat="@drawable/masseng" />
 
         <ImageView
             android:id="@+id/to_add"
             android:layout_width="70dp"
             android:layout_height="40dp"
-            android:layout_marginTop="41dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view4"
             app:layout_constraintEnd_toEndOf="@+id/view4"
             app:layout_constraintStart_toStartOf="@+id/view4"
-            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerV"
             app:srcCompat="@drawable/to_add" />
 
         <ImageView
@@ -118,10 +110,10 @@
             android:id="@+id/search"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginTop="52dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view4"
             app:layout_constraintEnd_toStartOf="@+id/to_add"
             app:layout_constraintStart_toEndOf="@+id/home"
-            app:layout_constraintTop_toBottomOf="@+id/see_more"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerV"
             app:srcCompat="@drawable/search" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -129,47 +121,25 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="53dp"
             android:background="?attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/view4"
             app:layout_constraintStart_toStartOf="@+id/view4"
-            app:layout_constraintTop_toBottomOf="@+id/see_more"
-            app:srcCompat="@drawable/home"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/see_more"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/background_button"
-            android:text="@string/see_more"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/view4"
-            app:layout_constraintEnd_toStartOf="@+id/EndOf"
-            app:layout_constraintStart_toEndOf="@+id/StartOf" />
-
-        <View
-            android:id="@+id/BottomOf"
-            android:layout_width="0dp"
-            android:layout_height="12dp"
-            app:layout_constraintBottom_toTopOf="@+id/see_more"
-            app:layout_constraintEnd_toStartOf="@+id/EndOf"
-            app:layout_constraintStart_toEndOf="@+id/StartOf" />
+            app:layout_constraintTop_toBottomOf="@+id/recyclerV"
+            app:srcCompat="@drawable/home" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerV"
-            app:dismiss_enabled="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="63dp"
-            app:layout_constraintBottom_toTopOf="@+id/BottomOf"
+            app:dismiss_enabled="true"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/view4"
             app:layout_constraintEnd_toStartOf="@+id/EndOf"
             app:layout_constraintStart_toEndOf="@+id/StartOf"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/tv_animal"
             tools:itemCount="3"
-            tools:listitem="@layout/image_item"/>
+            tools:listitem="@layout/image_item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
