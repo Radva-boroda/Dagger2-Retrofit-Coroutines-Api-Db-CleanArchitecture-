@@ -1,25 +1,36 @@
 package dev.ronnie.imageloaderdagger2.presentation.fragments
 
 
+import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+import androidx.recyclerview.widget.RecyclerView
 import dagger.android.support.DaggerFragment
 import dev.ronnie.imageloaderdagger2.R
+import dev.ronnie.imageloaderdagger2.api.RetrofitService
+import dev.ronnie.imageloaderdagger2.api.repository.Repository
 import dev.ronnie.imageloaderdagger2.databinding.FragmentPicturesBinding
 import dev.ronnie.imageloaderdagger2.presentation.adapters.StartAdapter
 import dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesFragmentViewModel
-
+import dev.ronnie.imageloaderdagger2.presentation.viewmodels.ViewModelFactoryP
 
 
 class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
     private var _binding: FragmentPicturesBinding? = null
     private val binding get() = _binding!!
+    lateinit var viewModel: PicturesFragmentViewModel
+    private val retrofitService = RetrofitService.getInstance()
+
     val adapter = StartAdapter()
 
 
@@ -28,9 +39,10 @@ class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentPicturesBinding.inflate(inflater, container, false)
-      val viewModel = ViewModelProvider(this).get(PicturesFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(this, ViewModelFactoryP(Repository(retrofitService))).get(
+            PicturesFragmentViewModel::class.java
+        )
 
         Log.i("image", "transfer")
 
@@ -38,19 +50,16 @@ class PicturesFragment : DaggerFragment(R.layout.fragment_pictures) {
         binding.recyclerV.layoutManager = GridLayoutManager(requireContext(), 3, LinearLayoutManager.VERTICAL, false)
 
 
-        viewModel.getAllMovies()
 
-        Log.i("adapter", "Norm")
-        viewModel.movieList.observe(viewLifecycleOwner,{list -> list.body()?.let{adapter.setMovie(it)}
+        viewModel.movieList.observe(viewLifecycleOwner, Observer {
+            Log.d("TAG", "onCreate: $it")
+            adapter.setMovieList(it)
         })
-//            .observe(viewLifecycleOwner, Observer {
-//            Log.d("TAG", "onCreate")
-//            adapter.setMovie(it)
-//        })
 
-//        viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
-//
-//        })
+        viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
+
+        })
+        viewModel.getAllMovies()
         return binding.root
     }
 
