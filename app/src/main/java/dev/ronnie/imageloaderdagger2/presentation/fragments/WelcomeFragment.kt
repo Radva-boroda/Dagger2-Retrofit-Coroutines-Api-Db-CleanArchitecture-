@@ -1,15 +1,10 @@
 package dev.ronnie.imageloaderdagger2.presentation.fragments
 
-import android.annotation.SuppressLint
-import android.graphics.drawable.DrawableContainer
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import dagger.android.support.DaggerFragment
 import dev.ronnie.imageloaderdagger2.R
 

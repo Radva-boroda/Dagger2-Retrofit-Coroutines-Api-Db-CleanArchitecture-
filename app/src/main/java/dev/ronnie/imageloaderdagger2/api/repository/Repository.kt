@@ -1,19 +1,16 @@
 package dev.ronnie.imageloaderdagger2.api.repository
 
 import android.util.Log
-import dev.ronnie.imageloaderdagger2.api.RetrofitService
-import dev.ronnie.imageloaderdagger2.data.images.Movie
-import retrofit2.Call
-import javax.inject.Inject
+import dev.ronnie.imageloaderdagger2.api.Api.RetrofitInstance
+import dev.ronnie.imageloaderdagger2.data.model.Movie
+import retrofit2.Response
 
 
-class Repository @Inject constructor(private val retrofitService: RetrofitService) {
 
-    fun getAllMovies(): Call<List<Movie>> {
+class Repository {
+    suspend fun getMovies(): Response<Movie> {
+        Log.d("TAG", "movies_Repository")
 
-        val movies = retrofitService.getAllMovies()
-        Log.d("TAG", "movies ${movies}")
-        return movies
+        return RetrofitInstance.api.getMovies()
     }
-
 }

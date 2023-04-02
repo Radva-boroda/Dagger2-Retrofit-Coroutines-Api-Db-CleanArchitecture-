@@ -8,7 +8,7 @@ import javax.inject.Inject
 /**
  *created by Ronnie Otieno on 03-Apr-21.
  **/
-class LoginFragmentViewModel @Inject constructor(private val repository: Repository, app: Application) :
+class LoginViewModel @Inject constructor(private val repository: Repository, app: Application) :
     AndroidViewModel(app) {
 
     }

@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesFragmentViewModel" />
+            type="dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesViewModel" />
 
     </data>
 
@@ -20,14 +20,14 @@
         android:background="@color/white">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/StartOf"
+            android:id="@+id/startOf2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="16dp"/>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/EndOf"
+            android:id="@+id/endOf2"
             android:layout_width="16dp"
             android:layout_height="0dp"
             android:orientation="vertical"
@@ -41,7 +41,7 @@
             android:text="@string/animals"
             android:textColor="@color/black"
             android:textSize="36sp"
-            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintStart_toEndOf="@+id/startOf2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:text="@string/tv_all"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintStart_toEndOf="@+id/startOf2"
             app:layout_constraintTop_toBottomOf="@+id/tv_animal" />
 
 
@@ -63,8 +63,8 @@
             android:layout_height="83dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/EndOf"
-            app:layout_constraintStart_toEndOf="@+id/StartOf" />
+            app:layout_constraintEnd_toStartOf="@+id/endOf2"
+            app:layout_constraintStart_toEndOf="@+id/startOf2" />
 
         <ImageView
             android:id="@+id/person"
@@ -135,8 +135,8 @@
             app:dismiss_enabled="true"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/view4"
-            app:layout_constraintEnd_toStartOf="@+id/EndOf"
-            app:layout_constraintStart_toEndOf="@+id/StartOf"
+            app:layout_constraintEnd_toStartOf="@+id/endOf2"
+            app:layout_constraintStart_toEndOf="@+id/startOf2"
             app:layout_constraintTop_toBottomOf="@+id/tv_animal"
             tools:itemCount="3"
             tools:listitem="@layout/image_item" />

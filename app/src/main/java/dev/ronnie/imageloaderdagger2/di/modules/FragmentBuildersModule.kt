@@ -3,8 +3,8 @@ package dev.ronnie.imageloaderdagger2.di.modules
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import dev.ronnie.imageloaderdagger2.presentation.fragments.LoginFragment
-import dev.ronnie.imageloaderdagger2.presentation.fragments.PicturesFragment
+import dev.ronnie.imageloaderdagger2.presentation.fragments.FragmentLogin
+import dev.ronnie.imageloaderdagger2.presentation.fragments.FragmentPictures
 import dev.ronnie.imageloaderdagger2.presentation.fragments.WelcomeFragment
 
 @Suppress("unused")
@@ -14,8 +14,8 @@ abstract class FragmentBuildersModule {
     abstract fun contributeWelcomeFragment(): WelcomeFragment
 
     @ContributesAndroidInjector
-    abstract fun contributePictureFragment(): PicturesFragment
+    abstract fun contributePictureFragment(): FragmentPictures
 
     @ContributesAndroidInjector
-    abstract fun contributeLoginFragment(): LoginFragment
+    abstract fun contributeLoginFragment(): FragmentLogin
 }

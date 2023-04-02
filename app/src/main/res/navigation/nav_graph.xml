@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/fragment_welcome"
         android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.WelcomeFragment"
-        android:label="WelcomeFragmentViewModel"
+        android:label="WelcomeViewModel"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/to_action_fragment_welcome_to_fragment_login"
@@ -17,8 +17,8 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_pictures"
-        android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.PicturesFragment"
-        android:label="PicturesFragmentViewModel"
+        android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.FragmentPictures"
+        android:label="PicturesViewModel"
         tools:layout="@layout/fragment_pictures">
 
         <action

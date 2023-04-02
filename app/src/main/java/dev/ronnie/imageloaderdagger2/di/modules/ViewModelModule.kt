@@ -6,10 +6,10 @@ import dagger.Binds
 import dagger.MapKey
 import dagger.Module
 import dagger.multibindings.IntoMap
-import dev.ronnie.imageloaderdagger2.presentation.viewmodels.LoginFragmentViewModel
-import dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesFragmentViewModel
+import dev.ronnie.imageloaderdagger2.presentation.viewmodels.LoginViewModel
+import dev.ronnie.imageloaderdagger2.presentation.viewmodels.PicturesViewModel
 import dev.ronnie.imageloaderdagger2.presentation.viewmodels.ViewModelFactory
-import dev.ronnie.imageloaderdagger2.presentation.viewmodels.WelcomeFragmentViewModel
+import dev.ronnie.imageloaderdagger2.presentation.viewmodels.WelcomeViewModel
 import kotlin.reflect.KClass
 
 @Suppress("unused")
@@ -17,18 +17,18 @@ import kotlin.reflect.KClass
 abstract class ViewModelModule {
     @Binds
     @IntoMap
-    @ViewModelKey(WelcomeFragmentViewModel::class)
-    abstract fun bindWelcomeFragmentViewModel(welcomeFragmentViewModel: WelcomeFragmentViewModel): ViewModel
+    @ViewModelKey(WelcomeViewModel::class)
+    abstract fun bindWelcomeViewModel(welcomeViewModel: WelcomeViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(PicturesFragmentViewModel::class)
-    abstract fun bindPicturesFragmentViewModel(picturesFragmentViewModel: PicturesFragmentViewModel): ViewModel
+    @ViewModelKey(PicturesViewModel::class)
+    abstract fun bindPicturesViewModel(picturesViewModel: PicturesViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(LoginFragmentViewModel::class)
-    abstract fun bindLoginFragmentViewModel(loginFragmentViewModel: LoginFragmentViewModel): ViewModel
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
 
 
     @Binds
