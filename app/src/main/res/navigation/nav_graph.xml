@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment_welcome"
-        android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.WelcomeFragment"
+        android:name="dev.ronnie.imageloaderdagger2.presentation.fragments.FragmentWelcome"
         android:label="WelcomeViewModel"
         tools:layout="@layout/fragment_welcome">
         <action
