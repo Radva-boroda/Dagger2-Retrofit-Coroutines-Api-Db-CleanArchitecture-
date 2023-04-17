@@ -6,11 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import dagger.android.support.DaggerFragment
 import dev.ronnie.imageloaderdagger2.R
 import dev.ronnie.imageloaderdagger2.databinding.FragmentPicturesBinding
@@ -41,9 +45,14 @@ class FragmentPictures : DaggerFragment(R.layout.fragment_pictures) {
             viewModel.images.collectLatest{ adapter.submitData(it)}
         }
         Log.i("image", "transfer")
+
         binding?.recyclerV?.adapter = adapter
         binding?.recyclerV?.layoutManager =
-            GridLayoutManager(requireContext(), 3, LinearLayoutManager.VERTICAL, false)
+            GridLayoutManager(requireContext(),3, LinearLayoutManager.VERTICAL, false)
+//            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//        val snapHelper: SnapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(binding!!.recyclerV)
+
         return binding!!.root
     }
     override fun onDestroyView() {

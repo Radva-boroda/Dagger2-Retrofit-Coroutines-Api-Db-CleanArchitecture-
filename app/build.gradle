@@ -7,13 +7,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "dev.ronnie.imageloaderdagger2"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -43,7 +43,7 @@ android {
     }
 }
 
-dependencies {
+dependencies {    //Do not update! will bring out the brains
 
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.4'
     def nav_version = "2.3.4"
@@ -108,7 +108,7 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:3.0.0-beta03"
 
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //swipe refresh
@@ -123,6 +123,7 @@ dependencies {
     implementation 'androidx.palette:palette-ktx:1.0.0'
 
     implementation 'com.github.Toxa2033:ScaleAndSwipeDismissImageView:v0.7'
-
+//Pager
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 
 }
