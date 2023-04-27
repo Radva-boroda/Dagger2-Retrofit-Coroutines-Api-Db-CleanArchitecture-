@@ -21,11 +21,6 @@ import javax.inject.Singleton
 
     @Singleton
     @Provides
-    //  HTTP-клиент нужен всем проектам для управления сетевыми запросами,
-    //  которые используют различные сервисы. Как те, что напрямую нужны
-    //  для работы приложения и размещены на вашем сервере,
-    //  так и те что отслеживают статистику, например, рекламы, и другие вспомогательные.
-    //НАСТРОЙКА КЛІЄНТА ПІД СЕБЕ
     fun providesOkhttp() : OkHttpClient {
         val builder = OkHttpClient.Builder()
             .addNetworkInterceptor(cacheInterceptor)
@@ -50,7 +45,6 @@ import javax.inject.Singleton
     @Provides
     fun providesApiService(retrofit: Retrofit): ApiService =
         retrofit.create(ApiService::class.java)
-
 
     private val cacheInterceptor = object : Interceptor {
         @Throws(IOException::class)

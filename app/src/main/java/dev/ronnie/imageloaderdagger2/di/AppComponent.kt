@@ -1,7 +1,6 @@
 package dev.ronnie.imageloaderdagger2.di
 
 import android.app.Application
-
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -24,9 +23,7 @@ interface AppComponent : AndroidInjector<App> {
     interface Builder {
         @BindsInstance
         fun application(application: Application): Builder
-
         fun build(): AppComponent
     }
-
     override fun inject(app: App)
 }

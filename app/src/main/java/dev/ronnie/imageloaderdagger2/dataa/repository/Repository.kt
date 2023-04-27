@@ -9,9 +9,8 @@ import dev.ronnie.imageloaderdagger2.utill.LOAD_SIZE
 import javax.inject.Inject
 
 class Repository @Inject constructor(private val apiService: ApiService) {
-    // 1 //
+
     fun getImages() = Pager(
-        // 2 //
         config = PagingConfig(enablePlaceholders = false, pageSize = LOAD_SIZE),
         pagingSourceFactory = {
             Log.d("TAG", "movies_Repository")

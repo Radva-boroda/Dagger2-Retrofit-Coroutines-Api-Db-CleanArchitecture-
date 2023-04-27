@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
-// Звязування елементів провів
+
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?){
     if (!imageUrl.isNullOrEmpty()) { Log.i("bind", "FromUrl")

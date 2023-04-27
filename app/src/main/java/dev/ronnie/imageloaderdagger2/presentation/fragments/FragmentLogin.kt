@@ -5,5 +5,5 @@ import dev.ronnie.imageloaderdagger2.R
 
 
 
-class FragmentLogin : DaggerFragment(R.layout.fragment_login) {
-}
+class FragmentLogin : DaggerFragment(R.layout.fragment_login)
+

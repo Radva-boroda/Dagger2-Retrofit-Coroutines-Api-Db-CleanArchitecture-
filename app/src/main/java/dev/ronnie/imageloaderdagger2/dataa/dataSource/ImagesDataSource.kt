@@ -11,8 +11,6 @@ import java.io.IOException
 
 class ImagesDataSource(private val apiService: ApiService) :
     PagingSource<Int, MovieItem>() {
-
-                       // 2 //
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieItem> {
         val page = params.key ?: STARTING_PAGE
 
