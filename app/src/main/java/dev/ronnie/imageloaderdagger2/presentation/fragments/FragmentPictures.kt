@@ -43,10 +43,6 @@ class FragmentPictures : DaggerFragment(R.layout.fragment_pictures) {
         binding?.recyclerV?.adapter = adapter
         binding?.recyclerV?.layoutManager =
             GridLayoutManager(requireContext(),3, LinearLayoutManager.VERTICAL, false)
-//            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//        val snapHelper: SnapHelper = LinearSnapHelper()
-//        snapHelper.attachToRecyclerView(binding!!.recyclerV)
-
         return binding!!.root
     }
     override fun onDestroyView() {

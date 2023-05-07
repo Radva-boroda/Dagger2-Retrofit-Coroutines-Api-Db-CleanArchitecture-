@@ -27,11 +27,9 @@ import javax.inject.Singleton
             .connectTimeout(60L, TimeUnit.SECONDS)
             .writeTimeout(60L, TimeUnit.SECONDS)
             .readTimeout(60L, TimeUnit.SECONDS)
-        // незнаю чи він до кінця потрібен цей if
         if (BuildConfig.DEBUG) builder.addInterceptor(loggingInterceptor)
         return builder.build()
     }
-
     @Singleton
     @Provides
     fun providesRetrofit(client: OkHttpClient): Retrofit {

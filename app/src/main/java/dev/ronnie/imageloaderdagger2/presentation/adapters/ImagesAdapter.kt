@@ -25,23 +25,19 @@ class ImagesAdapter: PagingDataAdapter<MovieItem, ImagesAdapter.ViewHolder>(Diff
             )
         )
     }
-
     inner class ViewHolder(
         private val binding: ImageItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         private var movieItem: MovieItem? = null
-
         fun bind(movieItem: MovieItem, position: Int) {
             Log.i("movie", "transfer")
             this.movieItem = movieItem
             binding.apply {
                 image = movieItem
-
                 executePendingBindings()
             }
         }
     }
-
     private class DiffCallback : DiffUtil.ItemCallback<MovieItem>() {
         override fun areItemsTheSame(oldItem: MovieItem, newItem: MovieItem): Boolean {
             return oldItem.name == newItem.name

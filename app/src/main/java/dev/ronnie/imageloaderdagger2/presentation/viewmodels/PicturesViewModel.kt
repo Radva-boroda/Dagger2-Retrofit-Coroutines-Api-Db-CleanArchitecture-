@@ -10,6 +10,5 @@ import javax.inject.Inject
 
 @Suppress("deprecation", "BlockingMethodInNonBlockingContext")
 class PicturesViewModel @Inject constructor(private val repository: Repository): ViewModel() {
-
     val images = repository.getImages().cachedIn(viewModelScope)
 }

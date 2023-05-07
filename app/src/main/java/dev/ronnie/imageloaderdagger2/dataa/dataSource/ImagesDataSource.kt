@@ -13,7 +13,6 @@ class ImagesDataSource(private val apiService: ApiService) :
     PagingSource<Int, MovieItem>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieItem> {
         val page = params.key ?: STARTING_PAGE
-
         return try {
             val data = apiService.getMovies()
             LoadResult.Page(
